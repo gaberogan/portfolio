@@ -10,9 +10,11 @@
     "deploy": "npm run build && wrangler pages deploy"
   },
   "dependencies": {
+    "@emotion/css": "^11.11.2",
     "@solidjs/meta": "^0.29.3",
     "@solidjs/router": "^0.13.2",
     "@solidjs/start": "^1.0.0-rc.0",
+    "lodash": "^4.17.21",
     "solid-js": "^1.8.16",
     "vinxi": "^0.3.11"
   },
@@ -21,6 +23,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240423.0",
+    "@types/lodash": "^4.17.0",
     "wrangler": "^3.53.0"
   }
 }
