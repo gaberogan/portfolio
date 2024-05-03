@@ -1,15 +1,13 @@
 import { css } from "@emotion/css";
-import BrowserOnly from "~/components/BrowserOnly";
 import Carousel from "~/components/Carousel";
 import { breakpoint } from "~/services/breakpoint";
 
 export default function WorkedWith() {
   return (
-    <BrowserOnly>
-      <div id="projects" />
+    <div id="projects" class={style}>
       <Carousel
         disabled={breakpoint() === "desktop"}
-        class={workedWithStyle}
+        class="worked-with"
         speed={0.3}
         height={breakpoint() === "desktop" ? "auto" : "30px"}
         images={[
@@ -37,33 +35,40 @@ export default function WorkedWith() {
           "/screenshots/prismic1.jpg",
         ]}
       />
-    </BrowserOnly>
+    </div>
   );
 }
 
-const workedWithStyle = css`
+const style = css`
   width: 100%;
-  max-width: 1400px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 45px;
-  padding: 0 64px;
+  flex-direction: column;
+  gap: 48px;
 
-  img {
-    min-width: 0;
-  }
-
-  @media (max-width: 991px) {
-    gap: 30px;
-    padding: 0 32px;
+  .worked-with {
     width: 100%;
-    overflow-x: scroll;
-    justify-content: initial;
+    max-width: 1400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    padding: 0 64px;
 
     img {
-      height: 30px;
-      min-width: auto;
+      min-width: 0;
+    }
+
+    @media (max-width: 991px) {
+      gap: 30px;
+      padding: 0 32px;
+      width: 100%;
+      overflow-x: scroll;
+      justify-content: initial;
+
+      img {
+        height: 30px;
+        min-width: auto;
+      }
     }
   }
 `;
