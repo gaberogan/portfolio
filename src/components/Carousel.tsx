@@ -1,16 +1,24 @@
-import { For, createEffect } from "solid-js";
+import { For, createEffect, untrack } from "solid-js";
 import { css } from "@emotion/css";
 import _ from "lodash";
 
 const NUM_REPEATS = 3;
-const SCROLL_SPEED = 0.8;
 
-export default function Carousel(props: { images: string[]; height: string; class?: string }) {
+type CarouselProps = {
+  images: string[];
+  height: string;
+  class?: string;
+  speed?: number;
+  disabled?: boolean;
+};
+
+export default function Carousel(props: CarouselProps) {
   let ref: HTMLElement | null = null;
+  let scrollLeftFloat = 0;
 
   const repeatedImages = () => {
     const arr: string[] = [];
-    _.times(NUM_REPEATS, () => arr.push(...props.images));
+    _.times(props.disabled ? 1 : NUM_REPEATS, () => arr.push(...props.images));
     return arr;
   };
 
@@ -19,17 +27,19 @@ export default function Carousel(props: { images: string[]; height: string; clas
     const animate = () => {
       if (ref) {
         const hovering = ref.matches(":hover");
-        if (!hovering) {
-          ref.scrollLeft = (ref.scrollLeft + SCROLL_SPEED) % (ref.scrollWidth / NUM_REPEATS);
+        if (!hovering && !props.disabled) {
+          scrollLeftFloat =
+            (scrollLeftFloat + (props.speed || 1)) % (ref.scrollWidth / NUM_REPEATS);
+          ref.scrollLeft = scrollLeftFloat;
         }
         requestAnimationFrame(animate);
       }
     };
-    animate();
+    untrack(animate);
   });
 
   return (
-    <div ref={(el) => (ref = el)} class={`${style} Carousel`}>
+    <div ref={(el) => (ref = el)} class={`${style} Carousel ${props.class || ""}`}>
       <For each={repeatedImages()}>
         {(src) => <img src={src} style={{ height: props.height }}></img>}
       </For>
@@ -40,6 +50,7 @@ export default function Carousel(props: { images: string[]; height: string; clas
 const style = css`
   display: flex;
   overflow-x: scroll;
+  width: 100%;
 
   ::-webkit-scrollbar {
     display: none;
