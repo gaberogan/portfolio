@@ -1,3 +1,11 @@
 /// <reference types="@solidjs/start/env" />
 
-type NotWorthIt = any;
+declare global {
+  interface Window {
+    Calendly: any;
+  }
+
+  type NotWorthIt = any;
+}
+
+export {};

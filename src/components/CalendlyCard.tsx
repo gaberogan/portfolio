@@ -1,8 +1,12 @@
 import { css } from "@emotion/css";
 
 export default function CalendlyCard() {
+  const launchCalendly = () => {
+    window.Calendly.initPopupWidget({ url: "https://calendly.com/gabe-rogan/30min" });
+  };
+
   return (
-    <div id="contact" class={style}>
+    <div onClick={launchCalendly} id="contact" class={style}>
       <img class="profile" src="/profile.jpg" />
       <div class="button">
         Get in touch with <img src="/icons/calendly.svg" />
@@ -31,6 +35,11 @@ const style = css`
     background-color: #fff;
     border-radius: 100px;
     padding: 12px 32px;
+    cursor: pointer;
+
+    :hover {
+      opacity: 0.9;
+    }
   }
 
   @media (max-width: 991px) {

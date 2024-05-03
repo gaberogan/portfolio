@@ -20,4 +20,5 @@ const style = css`
   flex-direction: column;
   align-items: center;
   gap: 48px;
+  padding-bottom: 48px;
 `;

@@ -68,22 +68,17 @@ const style = css`
   .orange {
     color: #fca27c;
 
-    @media (max-width: 991px) {
+    @media (max-width: 767px) {
       display: block;
     }
   }
 
   .blurb {
-    max-width: 550px;
-    font-size: 18px;
+    max-width: 520px;
+    font-size: 17px;
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1.35;
     margin-bottom: 12px;
-
-    @media (max-width: 991px) {
-      font-size: 16px;
-      max-width: 400px;
-    }
   }
 
   .download-button {

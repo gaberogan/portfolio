@@ -15,10 +15,16 @@ export default createHandler(() => (
             href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap"
             rel="stylesheet"
           />
+          <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
           {assets}
         </head>
         <body>
           <div id="app">{children}</div>
+          <script
+            src="https://assets.calendly.com/assets/external/widget.js"
+            type="text/javascript"
+            async
+          ></script>
           {scripts}
         </body>
       </html>
