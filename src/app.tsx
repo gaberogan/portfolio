@@ -85,5 +85,5 @@ const backgroundStyle = css`
   top: 0;
   right: 0;
   left: 0;
-  height: 2000px;
+  height: 100%;
 `;
