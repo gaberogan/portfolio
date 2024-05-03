@@ -103,8 +103,8 @@ const style = css`
       padding: 0 64px;
 
       @media (max-width: 767px) {
-        padding: 32px;
-        /* margin-top: -115px; */
+        padding: 0 32px;
+        margin-top: -120px;
       }
     }
 
@@ -164,7 +164,8 @@ const style = css`
       @media (max-width: 767px) {
         position: static;
         order: -1;
-        width: 100%;
+        height: 500px;
+        object-fit: cover;
       }
     }
   }

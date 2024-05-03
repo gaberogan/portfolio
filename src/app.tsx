@@ -51,8 +51,7 @@ const style = css`
 
   @media (max-width: 767px) {
     position: absolute;
-    justify-content: center;
-    padding: 0;
+    padding: 0 32px;
   }
 
   .left {
@@ -82,7 +81,7 @@ const style = css`
 const backgroundStyle = css`
   z-index: -1;
   position: absolute;
-  background: radial-gradient(at left top, #00000044, #00000000);
+  background: radial-gradient(at left top, #00000066, #00000000);
   top: 0;
   right: 0;
   left: 0;
