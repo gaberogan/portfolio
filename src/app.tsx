@@ -49,7 +49,7 @@ const style = css`
   max-width: 1400px;
   margin: 0 auto;
 
-  @media (max-width: 767px) {
+  @media (max-width: 991px) {
     position: absolute;
     padding: 0 32px;
   }
@@ -72,7 +72,7 @@ const style = css`
       color: white;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
       display: none;
     }
   }

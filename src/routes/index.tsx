@@ -88,7 +88,7 @@ const style = css`
     justify-content: center;
     height: 40vw;
 
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
       height: initial;
     }
 
@@ -102,7 +102,7 @@ const style = css`
       margin: 0 auto;
       padding: 0 64px;
 
-      @media (max-width: 767px) {
+      @media (max-width: 991px) {
         padding: 0 32px;
         margin-top: -120px;
       }
@@ -120,7 +120,7 @@ const style = css`
     .orange {
       color: #fca27c;
 
-      @media (max-width: 767px) {
+      @media (max-width: 991px) {
         display: block;
       }
     }
@@ -161,10 +161,10 @@ const style = css`
       height: 100%;
       z-index: -3;
 
-      @media (max-width: 767px) {
+      @media (max-width: 991px) {
         position: static;
         order: -1;
-        height: 500px;
+        height: 75vh;
         object-fit: cover;
       }
     }
