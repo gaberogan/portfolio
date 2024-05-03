@@ -47,7 +47,7 @@ const workedWithStyle = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 45px;
   padding: 0 64px;
 
   img {

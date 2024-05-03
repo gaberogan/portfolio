@@ -22,8 +22,8 @@ export default function Carousel(props: CarouselProps) {
     return arr;
   };
 
-  // Scroll the carousel
   createEffect(() => {
+    // Auto scroll the carousel
     const animate = () => {
       if (ref) {
         const hovering = ref.matches(":hover");
@@ -36,6 +36,11 @@ export default function Carousel(props: CarouselProps) {
       }
     };
     untrack(animate);
+
+    // Update scroll position on scroll
+    ref?.addEventListener("scrollend", () => {
+      scrollLeftFloat = ref!.scrollLeft;
+    });
   });
 
   return (
