@@ -1,3 +1,4 @@
+import { css } from "@emotion/css";
 import Carousel from "~/components/Carousel";
 
 const titles = [
@@ -10,22 +11,24 @@ const titles = [
 
 export default function Home() {
   return (
-    <main>
+    <main class={style}>
       {/* Hero */}
-      {/* <div>
-        <h1>
-          Hey folks, I'm <span>{titles[0]}</span>
-        </h1>
-        <div>
-          Building a successful product is a challenge. I create delightful user experiences and
-          develop software to save your business time and money.
+      <div class="hero">
+        <div class="left">
+          <h1 class="title">
+            Hey folks, I'm <span class="orange">{titles[0]}</span>
+          </h1>
+          <div class="blurb">
+            Building a successful product is a challenge. I create delightful user experiences and
+            develop software to save your business time and money.
+          </div>
+          <div class="download-button">
+            <img src="/icons/document.svg" />
+            <span>Download Resume</span>
+          </div>
         </div>
-        <div>
-          <img src="/icons/phone-tablet.svg" />
-          <span>Download Resume</span>
-        </div>
+        <img src="/coder.jpg" class="coder" />
       </div>
-      <img src="/coder.jpg" /> */}
       {/* Worked with */}
       {/* <h2>Worked with</h2>
       <div>
@@ -38,7 +41,7 @@ export default function Home() {
         <img src="/icons/lingumi.svg" />
       </div> */}
       {/* Screenshots */}
-      <Carousel
+      {/* <Carousel
         height="400px"
         images={[
           "/screenshots/eight1.jpg",
@@ -51,7 +54,7 @@ export default function Home() {
           "/screenshots/audacy2.jpg",
           "/screenshots/prismic1.jpg",
         ]}
-      ></Carousel>
+      ></Carousel> */}
       {/* Contact */}
       {/* <div>
         <img src="/profile.jpg" />
@@ -76,3 +79,97 @@ export default function Home() {
     </main>
   );
 }
+
+const style = css`
+  .hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40vw;
+
+    @media (max-width: 767px) {
+      height: initial;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 64px;
+
+      @media (max-width: 767px) {
+        padding: 32px;
+        /* margin-top: -115px; */
+      }
+    }
+
+    .title {
+      font-size: 40px;
+      margin: 0;
+
+      @media (max-width: 991px) {
+        font-size: 30px;
+      }
+    }
+
+    .orange {
+      color: #fca27c;
+
+      @media (max-width: 767px) {
+        display: block;
+      }
+    }
+
+    .blurb {
+      max-width: 550px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 12px;
+
+      @media (max-width: 991px) {
+        font-size: 16px;
+        max-width: 400px;
+      }
+    }
+
+    .download-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #fff;
+      padding: 18px 32px;
+      border-radius: 50px;
+      color: #19254b;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      :hover {
+        opacity: 0.9;
+      }
+    }
+
+    .coder {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      z-index: -3;
+
+      @media (max-width: 767px) {
+        position: static;
+        order: -1;
+        width: 100%;
+      }
+    }
+  }
+
+  .Carousel {
+    margin-top: 1000px;
+  }
+`;

@@ -5,7 +5,7 @@ import _ from "lodash";
 const NUM_REPEATS = 3;
 const SCROLL_SPEED = 0.8;
 
-export default function Carousel(props: { images: string[]; height: string }) {
+export default function Carousel(props: { images: string[]; height: string; class?: string }) {
   let ref: HTMLElement | null = null;
 
   const repeatedImages = () => {
@@ -29,7 +29,7 @@ export default function Carousel(props: { images: string[]; height: string }) {
   });
 
   return (
-    <div ref={(el) => (ref = el)} class={style}>
+    <div ref={(el) => (ref = el)} class={`${style} Carousel`}>
       <For each={repeatedImages()}>
         {(src) => <img src={src} style={{ height: props.height }}></img>}
       </For>
@@ -41,7 +41,7 @@ const style = css`
   display: flex;
   overflow-x: scroll;
 
-  &::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     display: none;
   }
 `;

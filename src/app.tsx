@@ -27,6 +27,7 @@ export default function App() {
               </a>
             </nav>
           </header>
+          <div class={backgroundStyle} />
           <Suspense>{props.children}</Suspense>
         </MetaProvider>
       )}
@@ -38,21 +39,52 @@ export default function App() {
 
 const style = css`
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: space-between;
-  padding: 12px;
+  height: 100px;
+  padding: 0 64px;
+  font-weight: bold;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @media (max-width: 767px) {
+    position: absolute;
+    justify-content: center;
+    padding: 0;
+  }
 
   .left {
+    font-size: 24px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 8px;
   }
 
   nav {
     display: flex;
     gap: 30px;
+    font-size: 18px;
 
     a {
       text-decoration: none;
+      color: white;
+    }
+
+    @media (max-width: 767px) {
+      display: none;
     }
   }
+`;
+
+const backgroundStyle = css`
+  z-index: -1;
+  position: absolute;
+  background: radial-gradient(at left top, #00000044, #00000000);
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2000px;
 `;
