@@ -9,7 +9,7 @@ export default function CalendlyCard() {
     <div onClick={launchCalendly} id="contact" class={style}>
       <img class="profile" src="/profile.jpg" />
       <div class="button">
-        Get in touch with <img src="/icons/calendly.svg" />
+        Get in touch with <img class="logo" src="/icons/calendly.svg" />
       </div>
     </div>
   );
@@ -18,20 +18,20 @@ export default function CalendlyCard() {
 const style = css`
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 24px;
   color: #19254b;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 18px;
 
   .profile {
-    width: 120px;
+    width: 100px;
     border-radius: 100px;
   }
 
   .button {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     background-color: #fff;
     border-radius: 100px;
     padding: 12px 32px;
@@ -40,6 +40,10 @@ const style = css`
     :hover {
       opacity: 0.9;
     }
+  }
+
+  .logo {
+    height: 24px;
   }
 
   @media (max-width: 991px) {

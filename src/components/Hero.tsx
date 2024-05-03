@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import CarouselText from "./CarouselText";
 
 const titles = [
   "Gabe Rogan",
@@ -13,7 +14,7 @@ export default function Hero() {
     <div class={`${style} Hero`}>
       <div class="left">
         <h1 class="title">
-          Hey folks, I'm <span class="orange">{titles[0]}</span>
+          Hey folks, I'm <CarouselText class="orange" options={titles} duration={0.25} delay={2} />
         </h1>
         <div class="blurb">
           Building a successful product is a challenge. I create delightful user experiences and
@@ -35,7 +36,7 @@ const style = css`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 42vw;
+  height: 40vw;
 
   @media (max-width: 991px) {
     height: initial;
@@ -58,19 +59,19 @@ const style = css`
   }
 
   .title {
-    font-size: 40px;
+    display: flex;
+    gap: 12px;
+    font-size: 32px;
 
-    @media (max-width: 991px) {
+    @media (max-width: 767px) {
       font-size: 30px;
+      flex-direction: column;
+      gap: 0;
     }
   }
 
   .orange {
     color: #fca27c;
-
-    @media (max-width: 767px) {
-      display: block;
-    }
   }
 
   .blurb {
