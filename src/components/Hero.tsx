@@ -20,10 +20,13 @@ export default function Hero() {
           Building a successful product is a challenge. I create delightful user experiences and
           develop software to save your business time and money.
         </div>
-        <div class="download-button">
+        <a
+          href="https://drive.google.com/uc?export=download&id=1asng5JA8wMHqT2f_qyzHmY8BfyQKHBlk"
+          class="download-button"
+        >
           <img src="/icons/document.svg" />
           <span>Download Resume</span>
-        </div>
+        </a>
       </div>
       <img src="/coder.jpg" class="coder" />
     </div>
@@ -92,6 +95,7 @@ const style = css`
     color: #19254b;
     font-weight: bold;
     font-size: 16px;
+    text-decoration: none;
     cursor: pointer;
     :hover {
       opacity: 0.9;
