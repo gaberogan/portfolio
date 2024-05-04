@@ -12,6 +12,10 @@ type CarouselProps = {
   disabled?: boolean;
 };
 
+function hasTouch() {
+  return "ontouchstart" in document.documentElement || navigator.maxTouchPoints > 0;
+}
+
 export default function Carousel(props: CarouselProps) {
   let scrollRef: HTMLElement | null = null;
   let ref: HTMLElement | null = null;
@@ -29,10 +33,10 @@ export default function Carousel(props: CarouselProps) {
     // Auto scroll the carousel
     const animate = () => {
       if (ref) {
-        const hovering = ref.matches(":hover");
+        const paused = hasTouch() ? ref.matches(":active") : ref.matches(":hover");
         if (props.disabled) {
           ref.style.transform && (ref.style.transform = "");
-        } else if (!hovering) {
+        } else if (!paused) {
           scrollLeftFloat = (scrollLeftFloat + (props.speed || 1)) % getCarouselWidth();
           ref.style.transform = `translateX(${-scrollLeftFloat}px)`;
         }
