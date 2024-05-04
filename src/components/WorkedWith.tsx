@@ -47,28 +47,18 @@ const style = css`
   gap: 48px;
 
   .worked-with {
-    width: 100%;
-    max-width: 1400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 45px;
-    padding: 0 64px;
+    gap: 30px;
 
-    img {
-      min-width: 0;
-    }
-
-    @media (max-width: 991px) {
-      gap: 30px;
-      padding: 0 32px;
-      width: 100%;
-      overflow-x: scroll;
-      justify-content: initial;
+    @media (min-width: 992px) {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 45px;
+      padding: 0 64px;
 
       img {
-        height: 30px;
-        min-width: auto;
+        min-width: 0;
       }
     }
   }

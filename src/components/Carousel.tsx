@@ -2,7 +2,7 @@ import { For, createEffect, untrack } from "solid-js";
 import { css } from "@emotion/css";
 import _ from "lodash";
 
-const NUM_REPEATS = 3;
+const NUM_REPEATS = 4;
 
 type CarouselProps = {
   images: string[];
@@ -13,8 +13,11 @@ type CarouselProps = {
 };
 
 export default function Carousel(props: CarouselProps) {
+  let scrollRef: HTMLElement | null = null;
   let ref: HTMLElement | null = null;
   let scrollLeftFloat = 0;
+
+  const getCarouselWidth = () => ref!.scrollWidth / NUM_REPEATS;
 
   const repeatedImages = () => {
     const arr: string[] = [];
@@ -27,35 +30,42 @@ export default function Carousel(props: CarouselProps) {
     const animate = () => {
       if (ref) {
         const hovering = ref.matches(":hover");
-        if (!hovering && !props.disabled) {
-          scrollLeftFloat =
-            (scrollLeftFloat + (props.speed || 1)) % (ref.scrollWidth / NUM_REPEATS);
-          ref.scrollLeft = scrollLeftFloat;
+        if (props.disabled) {
+          ref.style.transform && (ref.style.transform = "");
+        } else if (!hovering) {
+          scrollLeftFloat = (scrollLeftFloat + (props.speed || 1)) % getCarouselWidth();
+          ref.style.transform = `translateX(${-scrollLeftFloat}px)`;
         }
         requestAnimationFrame(animate);
       }
     };
     untrack(animate);
 
-    // Update scroll position on scroll
-    ref?.addEventListener("scrollend", () => {
-      scrollLeftFloat = ref!.scrollLeft;
+    // Infinite loop scroll on scroll
+    scrollRef?.addEventListener("scroll", () => {
+      scrollRef!.scrollLeft = scrollRef!.scrollLeft % getCarouselWidth();
     });
   });
 
   return (
-    <div ref={(el) => (ref = el)} class={`${style} Carousel ${props.class || ""}`}>
-      <For each={repeatedImages()}>
-        {(src) => <img src={src} style={{ height: props.height }}></img>}
-      </For>
+    <div class={style} ref={(el) => (scrollRef = el)}>
+      <div ref={(el) => (ref = el)} class={`carousel ${props.class || ""}`}>
+        <For each={repeatedImages()}>
+          {(src) => <img src={src} style={{ height: props.height }}></img>}
+        </For>
+      </div>
     </div>
   );
 }
 
 const style = css`
-  display: flex;
   overflow-x: scroll;
   width: 100%;
+
+  .carousel {
+    display: flex;
+    width: 100%;
+  }
 
   ::-webkit-scrollbar {
     display: none;
