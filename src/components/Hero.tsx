@@ -18,7 +18,7 @@ export default function Hero() {
         </h1>
         <div class="blurb">
           Building a successful product is a challenge. I create delightful user experiences and
-          develop software to save your business time and money.
+          develop software to make your vision a reality.
         </div>
         <a
           href="https://drive.google.com/uc?export=download&id=1asng5JA8wMHqT2f_qyzHmY8BfyQKHBlk"
@@ -78,7 +78,7 @@ const style = css`
   }
 
   .blurb {
-    max-width: 520px;
+    max-width: 550px;
     font-size: 17px;
     font-weight: 500;
     line-height: 1.35;
