@@ -32,6 +32,9 @@ export default function WorkedWith() {
           "/screenshots/betql3.jpg",
           "/screenshots/audacy1.jpg",
           "/screenshots/audacy2.jpg",
+          "/screenshots/grayjay1.jpg",
+          "/screenshots/uconn1.jpg",
+          "/screenshots/lingumi1.jpg",
           "/screenshots/prismic1.jpg",
         ]}
       />
