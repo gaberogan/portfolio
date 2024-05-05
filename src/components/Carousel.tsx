@@ -1,6 +1,7 @@
 import { For, createEffect, untrack } from "solid-js";
 import { css } from "@emotion/css";
 import _ from "lodash";
+import { hasTouch } from "~/services/touch";
 
 const NUM_REPEATS = 4;
 
@@ -11,10 +12,6 @@ type CarouselProps = {
   speed?: number;
   disabled?: boolean;
 };
-
-function hasTouch() {
-  return "ontouchstart" in document.documentElement || navigator.maxTouchPoints > 0;
-}
 
 export default function Carousel(props: CarouselProps) {
   let scrollRef: HTMLElement | null = null;
