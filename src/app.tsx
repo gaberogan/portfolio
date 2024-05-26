@@ -15,8 +15,8 @@ export default function App() {
             <Title>Gabe Rogan</Title>
             <header class={style}>
               <div class="left">
-                <img src="/icons/phone-tablet.svg" />
-                <div>Gabe Rogan</div>
+                <img src="/icons/anvilandpixel.png" width={40} />
+                <div>Anvil & Pixel</div>
               </div>
               <nav>
                 <a href="#projects">Projects</a>
