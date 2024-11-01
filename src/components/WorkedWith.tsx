@@ -11,6 +11,7 @@ export default function WorkedWith() {
         speed={0.3}
         height={breakpoint() === "desktop" ? "auto" : "30px"}
         images={[
+          "/icons/swish.svg",
           "/icons/betql.svg",
           "/icons/audacy.svg",
           "/icons/uconn.svg",
@@ -23,6 +24,7 @@ export default function WorkedWith() {
         height="400px"
         speed={breakpoint() === "desktop" ? 0.6 : 0.4}
         images={[
+          "/screenshots/swish1.jpg",
           "/screenshots/betql1.jpg",
           "/screenshots/betql2.jpg",
           "/screenshots/betql3.jpg",
